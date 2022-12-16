@@ -37,6 +37,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _delete() {
+    setState(() {
+    _counter--;
+    })
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,6 +65,11 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
+       floatingActionButton: FloatingActionButton(
+        onPressed: _delete,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
