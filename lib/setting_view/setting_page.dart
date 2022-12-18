@@ -31,7 +31,8 @@ class SettingPage extends StatelessWidget {
       // appBar: SettingHeader(appBar: AppBar()),
       body: SingleChildScrollView(
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          // mainAxisAlignment: MainAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[SettingSecurity()],
         ),
       ),
