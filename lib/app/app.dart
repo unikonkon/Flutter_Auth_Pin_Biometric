@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_auth_pin_biometric/setting_view/setting_page.dart';
@@ -21,6 +22,12 @@ class AppView extends StatefulWidget {
 class _AppViewState extends State<AppView> {
   @override
   Widget build(BuildContext context) {
-    return SettingPage();
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        scaffoldBackgroundColor: Color(0xFF202529),
+      ),
+      home: const SettingPage(),
+    );
   }
 }
