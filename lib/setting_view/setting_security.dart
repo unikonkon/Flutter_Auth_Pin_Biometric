@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
+import 'package:flutter_auth_pin_biometric/setting_pin/setting_pin_page.dart';
 
 class SettingSecurity extends StatefulWidget {
   const SettingSecurity({super.key});
@@ -14,7 +14,11 @@ class _SettingSecurityState extends State<SettingSecurity> {
   Widget build(BuildContext context) {
     return Container(
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context, rootNavigator: true).push<void>(
+            SecurityPinPage.route(),
+          );
+        },
         child: null,
       ),
     );

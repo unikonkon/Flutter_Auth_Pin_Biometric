@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth_pin_biometric/setting_view/setting_page.dart';
 
 class MyBottomBar extends StatefulWidget {
   @override
@@ -10,10 +11,7 @@ class _MyBottomBarState extends State<MyBottomBar> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
+    SettingPage(),
     Text(
       'Index 1: Business',
       style: optionStyle,
