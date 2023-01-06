@@ -32,6 +32,7 @@ class SettingPage extends StatelessWidget {
     return Scaffold(
       // appBar: SettingHeader(appBar: AppBar()),
       body: SingleChildScrollView(
+
         child: Padding(
           padding: EdgeInsets.only(top: 30),
           child: Column(
@@ -43,6 +44,7 @@ class SettingPage extends StatelessWidget {
               SettingLogout(),
             ],
           ),
+
         ),
       ),
     );
