@@ -35,6 +35,7 @@ class _MyBottomBarState extends State<MyBottomBar> {
         title: const Text('BottomNavigationBar Sample'),
       ),
       body: Center(
+        //  child: _widgetOptions[_selectedIndex],
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(

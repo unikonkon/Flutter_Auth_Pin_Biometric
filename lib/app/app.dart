@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_auth_pin_biometric/bottombar/bottombar.dart';
-import 'package:flutter_auth_pin_biometric/setting_view/setting_page.dart';
+import 'package:flutter_auth_pin_biometric/setting_view/bloc/security_bloc.dart';
+import 'package:flutter_auth_pin_biometric/setting_view/cubit/security_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class App extends StatelessWidget {
@@ -10,7 +10,13 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const AppView();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => SecurityBloc()),
+        BlocProvider(create: (_) => SecurityCubit())
+      ],
+      child: const AppView(),
+    );
   }
 }
 
@@ -30,7 +36,7 @@ class _AppViewState extends State<AppView> {
           return MaterialApp(
             title: 'Flutter Demo',
             theme: ThemeData(
-              scaffoldBackgroundColor: Color(0xFF202529),
+              scaffoldBackgroundColor: Color.fromARGB(255, 224, 228, 229),
             ),
             home: MyBottomBar(),
           );

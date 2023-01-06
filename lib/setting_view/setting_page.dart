@@ -4,35 +4,45 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_auth_pin_biometric/setting_view/setting_button.dart';
+import 'package:flutter_auth_pin_biometric/setting_view/setting_logout.dart';
 import 'package:flutter_auth_pin_biometric/setting_view/setting_security.dart';
 import 'package:page_transition/page_transition.dart';
 
 class SettingPage extends StatelessWidget {
   const SettingPage({super.key});
 
-  static Route route() {
-    if (Platform.isAndroid) {
-      // Android-specific code
-      return PageTransition<void>(
-        type: PageTransitionType.rightToLeft,
-        child: const SettingPage(),
-      );
-    } else {
-      // iOS-specific code
-      return MaterialPageRoute<void>(
-        builder: (_) => const SettingPage(),
-      );
-    }
-  }
+  // static Route route() {
+  //   if (Platform.isAndroid) {
+  //     // Android-specific code
+  //     return PageTransition<void>(
+  //       type: PageTransitionType.rightToLeft,
+  //       child: const SettingPage(),
+  //     );
+  //   } else {
+  //     // iOS-specific code
+  //     return MaterialPageRoute<void>(
+  //       builder: (_) => const SettingPage(),
+  //     );
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // appBar: SettingHeader(appBar: AppBar()),
       body: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[SettingSecurity()],
+        child: Padding(
+          padding: EdgeInsets.only(top: 30),
+          child: Column(
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.end,
+            children: const <Widget>[
+              SettingSecurity(),
+              SizedBox(height: 30),
+              SettingLogout(),
+            ],
+          ),
         ),
       ),
     );
