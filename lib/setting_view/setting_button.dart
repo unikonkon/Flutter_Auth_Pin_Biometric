@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth_pin_biometric/setting_pin/setting_pin_page.dart';
 import 'package:flutter_auth_pin_biometric/setting_view/bloc/security_bloc.dart';
+import 'package:flutter_auth_pin_biometric/setting_view/cubit/security_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -30,11 +31,7 @@ class SettingButton extends StatelessWidget {
                   alignment: Alignment.center,
                 ),
                 onPressed: () {
-                  if (state.statusOn == SecurityStatus.currentStep) {
-                    Navigator.of(context, rootNavigator: true).push<void>(
-                      SecurityPinPage.route(),
-                    );
-                  } else {
+                  if (context.read<SecurityCubit>().state) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         duration: const Duration(milliseconds: 1500),
@@ -48,6 +45,10 @@ class SettingButton extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10.r),
                         ),
                       ),
+                    );
+                  } else {
+                    Navigator.of(context, rootNavigator: true).push<void>(
+                      SecurityPinPage.route(),
                     );
                   }
                 },
@@ -71,7 +72,7 @@ class SettingButton extends StatelessWidget {
                   alignment: Alignment.center,
                 ),
                 onPressed: () {
-                  if (state.statusOn == SecurityStatus.completePin) {
+                  if (context.read<SecurityCubit>().state) {
                     Navigator.of(context, rootNavigator: true).push<void>(
                       SecurityPinPage.route(),
                     );

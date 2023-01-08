@@ -1,9 +1,28 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_auth_pin_biometric/setting_view/setting_page.dart';
+import 'package:page_transition/page_transition.dart';
 
 class MyBottomBar extends StatefulWidget {
+  const MyBottomBar({super.key});
+
   @override
   _MyBottomBarState createState() => _MyBottomBarState();
+  static Route route() {
+    if (Platform.isAndroid) {
+      // Android-specific code
+      return PageTransition<void>(
+        type: PageTransitionType.rightToLeft,
+        child: MyBottomBar(),
+      );
+    } else {
+      // iOS-specific code
+      return MaterialPageRoute<void>(
+        builder: (_) => MyBottomBar(),
+      );
+    }
+  }
 }
 
 class _MyBottomBarState extends State<MyBottomBar> {
@@ -11,15 +30,15 @@ class _MyBottomBarState extends State<MyBottomBar> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Business',
+      style: optionStyle,
+    ),
     SettingPage(),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
   ];
 
   void _onItemTapped(int index) {
@@ -31,9 +50,13 @@ class _MyBottomBarState extends State<MyBottomBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('BottomNavigationBar Sample'),
-      ),
+      // appBar: AppBar(
+      //     title: Text(
+      //           '',
+      //           style: Theme.of(context).textTheme.titleLarge,
+      //         ),
+      //         backgroundColor: Colors.transparent,
+      //     ),
       body: Center(
         //  child: _widgetOptions[_selectedIndex],
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -49,8 +72,8 @@ class _MyBottomBarState extends State<MyBottomBar> {
             label: 'Business',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+            icon: Icon(Icons.lock),
+            label: 'Security',
           ),
         ],
         currentIndex: _selectedIndex,
