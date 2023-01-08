@@ -11,10 +11,11 @@ class SettingLogout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const color = Color.fromARGB(255, 208, 64, 64);
+    const colortext = Color.fromARGB(255, 103, 108, 109);
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
             backgroundColor: color,
-            fixedSize: Size(390.w, 80.h),
+            fixedSize: Size(390.w, 70.h),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.r),
             )),
@@ -22,11 +23,13 @@ class SettingLogout extends StatelessWidget {
               context: context,
               builder: (BuildContext context) => AlertDialog(
                 title: const Text('Logout'),
-                content: const Text('ยืนยันการ Logout รีเซ็ต PIN ใหม่'),
+                content:
+                    Text('ยืนยันการ Logout รีเซ็ต PIN ใหม่ \nปิด Security'),
                 actions: <Widget>[
                   TextButton(
                     onPressed: () => Navigator.pop(context, 'Cancel'),
-                    child: const Text('Cancel'),
+                    child: const Text('Cancel',
+                        style: TextStyle(fontSize: 18, color: colortext)),
                   ),
                   TextButton(
                     onPressed: () => {
@@ -36,7 +39,8 @@ class SettingLogout extends StatelessWidget {
                       Navigator.pop(context, 'Cancel'),
                       context.read<SecurityCubit>().none(),
                     },
-                    child: const Text('OK'),
+                    child: const Text('OK',
+                        style: TextStyle(fontSize: 18, color: colortext)),
                   ),
                 ],
               ),
@@ -62,7 +66,9 @@ class DialogExample extends StatelessWidget {
           actions: <Widget>[
             TextButton(
               onPressed: () => Navigator.pop(context, 'Cancel'),
-              child: const Text('Cancel'),
+              child: const Text(
+                'Cancel',
+              ),
             ),
             TextButton(
               onPressed: () => Navigator.pop(context, 'OK'),

@@ -12,29 +12,35 @@ import 'package:page_transition/page_transition.dart';
 class SettingPage extends StatelessWidget {
   const SettingPage({super.key});
 
-  // static Route route() {
-  //   if (Platform.isAndroid) {
-  //     // Android-specific code
-  //     return PageTransition<void>(
-  //       type: PageTransitionType.rightToLeft,
-  //       child: const SettingPage(),
-  //     );
-  //   } else {
-  //     // iOS-specific code
-  //     return MaterialPageRoute<void>(
-  //       builder: (_) => const SettingPage(),
-  //     );
-  //   }
-  // }
+  static Route route() {
+    if (Platform.isAndroid) {
+      // Android-specific code
+      return PageTransition<void>(
+        type: PageTransitionType.rightToLeft,
+        child: const SettingPage(),
+      );
+    } else {
+      // iOS-specific code
+      return MaterialPageRoute<void>(
+        builder: (_) => const SettingPage(),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: SettingHeader(appBar: AppBar()),
+      // appBar: AppBar(
+      //   title: Text(
+      //     'Security',
+      //     style: Theme.of(context).textTheme.titleLarge,
+      //   ),
+      //   backgroundColor: Color.fromARGB(255, 172, 170, 170),
+      // ),
       body: SingleChildScrollView(
 
         child: Padding(
-          padding: EdgeInsets.only(top: 30),
+          padding: EdgeInsets.only(top: 50),
           child: Column(
             // crossAxisAlignment: CrossAxisAlignment.center,
             // mainAxisAlignment: MainAxisAlignment.end,
