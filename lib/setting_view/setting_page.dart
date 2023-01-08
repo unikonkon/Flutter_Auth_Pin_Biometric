@@ -38,6 +38,7 @@ class SettingPage extends StatelessWidget {
       //   backgroundColor: Color.fromARGB(255, 172, 170, 170),
       // ),
       body: SingleChildScrollView(
+
         child: Padding(
           padding: EdgeInsets.only(top: 50),
           child: Column(
@@ -49,6 +50,7 @@ class SettingPage extends StatelessWidget {
               SettingLogout(),
             ],
           ),
+
         ),
       ),
     );

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+
 import 'package:flutter_auth_pin_biometric/setting_pin/setting_pin_page.dart';
 import 'package:flutter_auth_pin_biometric/setting_view/cubit/security_cubit.dart';
 import 'package:flutter_auth_pin_biometric/setting_view/setting_button.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SettingSecurity extends StatefulWidget {
@@ -16,6 +18,7 @@ class SettingSecurity extends StatefulWidget {
 class _SettingSecurityState extends State<SettingSecurity> {
   @override
   Widget build(BuildContext context) {
+
     const color = Color(0xFF003640);
     final Color colorCubit;
     final String status;
